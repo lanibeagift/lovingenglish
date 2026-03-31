@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lani – Be A Gift | English Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">Lani - Be A Gift</div>
+            <ul class="nav-links">
+                <li class="active" onclick="showPage('dashboard')">🏠 Dashboard</li>
+                <li onclick="showPage('flashcards')">🃏 Flashcard Hub</li>
+                <li onclick="showPage('stats')">📊 Thống kê</li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <header>
+                <h1 id="greeting">Chào Lani! 👋</h1>
+                <div class="user-stats">
+                    <span>💎 XP: <b id="xp-display">0</b></span>
+                    <span>🔥 Streak: <b id="streak-display">0</b> ngày</span>
+                </div>
+            </header>
+
+            <section id="dashboard-page" class="page">
+                <div class="daily-review-box">
+                    <h3>🔥 Daily Review</h3>
+                    <p>Bạn có từ vựng cần ôn tập ngay!</p>
+                    <button onclick="startReview()">Ôn tập ngay</button>
+                </div>
+
+                <h2>Lộ trình học tập</h2>
+                <div class="lesson-grid" id="lesson-list">
+                    </div>
+            </section>
+
+            <section id="stats-page" class="page" style="display:none;">
+                <h2>Tiến độ của bạn</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h4>Lỗi hay gặp</h4>
+                        <ul id="mistake-list"><li>Chưa có dữ liệu</li></ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

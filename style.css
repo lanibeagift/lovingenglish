@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #4facfe;
+    --bg-color: #f8fafc;
+    --sidebar-color: #ffffff;
+    --text-color: #1e293b;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-color);
+}
+
+.container { display: flex; height: 100vh; }
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: var(--sidebar-color);
+    border-right: 1px solid #e2e8f0;
+    padding: 20px;
+}
+
+.logo { font-weight: 700; font-size: 20px; color: var(--primary-color); margin-bottom: 40px; }
+.nav-links { list-style: none; padding: 0; }
+.nav-links li { padding: 12px; cursor: pointer; border-radius: 8px; margin-bottom: 5px; transition: 0.3s; }
+.nav-links li.active, .nav-links li:hover { background: #eff6ff; color: var(--primary-color); }
+
+/* CONTENT */
+.content { flex: 1; padding: 40px; overflow-y: auto; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+
+.daily-review-box {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white; padding: 20px; border-radius: 15px; margin-bottom: 30px;
+}
+
+.lesson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.lesson-card { background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; }
