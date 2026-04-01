@@ -20,20 +20,23 @@
         <main class="content">
             <header>
                 <h1 id="greeting">Chào Lani! 👋</h1>
-                <div class="user-stats">💎 XP: <b id="xp-display">0</b></div>
+                <div class="user-stats">
+                    <span>💎 XP: <b id="xp-display">0</b></span>
+                    <span> 🔥 <b id="streak-display">0</b> ngày</span>
+                </div>
             </header>
 
             <section id="dashboard-page" class="page">
                 <div class="daily-review-box">
                     <h3>🔥 Daily Review</h3>
-                    <p>Bạn có từ vựng cần ôn tập ngay để giữ Streak!</p>
-                    <button onclick="alert('Tính năng SRS đang được phát triển!')">Ôn tập ngay</button>
+                    <p>Bạn có từ vựng cần ôn tập ngay!</p>
+                    <button onclick="alert('Tính năng đang hoàn thiện!')">Ôn tập ngay</button>
                 </div>
                 <h2>Lộ trình học tập</h2>
                 <div class="lesson-grid">
                     <div class="lesson-card">
                         <h3>Topic 1: Introduce Yourself</h3>
-                        <p>10 Từ vựng • Chuyện chêm • Shadowing</p>
+                        <p>10 Từ vựng • Shadowing • Quiz</p>
                         <button class="btn-primary" onclick="openLesson()">Học ngay</button>
                     </div>
                 </div>
@@ -41,17 +44,14 @@
 
             <section id="stats-page" class="page" style="display:none;">
                 <h2>Tiến độ học tập</h2>
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <h4>Từ vựng hay sai</h4>
-                        <ul id="mistake-list"><li>Chưa có lỗi sai nào. Tuyệt vời!</li></ul>
-                    </div>
+                <div class="stat-card">
+                    <h4>Lịch sử học tập</h4>
+                    <p>Bạn đang làm rất tốt, cố lên nhé!</p>
                 </div>
             </section>
 
             <section id="lesson-workspace" class="page" style="display:none;">
                 <button class="btn-back" onclick="showPage('dashboard')">⬅ Quay lại</button>
-                
                 <div class="main-tabs">
                     <button class="tab-btn active" onclick="switchTab('flash')">🃏 Flashcard</button>
                     <button class="tab-btn" onclick="switchTab('story')">📰 Chuyện chêm</button>
@@ -68,26 +68,15 @@
                         <span id="vocab-index">1/10</span>
                         <button onclick="nextVocab()">➡</button>
                     </div>
-                    <div class="srs-buttons">
-                        <button class="srs-btn again" onclick="nextVocab()">Again</button>
-                        <button class="srs-btn easy" onclick="nextVocab()">Easy</button>
-                    </div>
                 </div>
 
                 <div id="story-tab" class="tab-content" style="display:none;">
                     <div class="sub-tabs">
                         <button class="sub-btn active" onclick="switchSubTab('mixed')">📖 Đọc chuyện</button>
-                        <button class="sub-btn" onclick="switchSubTab('dict')">🎧 Dictation</button>
                         <button class="sub-btn" onclick="switchSubTab('shadow')">🎙️ Shadowing</button>
                     </div>
                     <div id="mixed-content" class="sub-content story-container"></div>
-                    <div id="dict-content" class="sub-content" style="display:none;">
-                        <div id="dict-list"></div>
-                        <button class="btn-primary" onclick="checkDictation()">Kiểm tra</button>
-                    </div>
-                    <div id="shadow-content" class="sub-content" style="display:none;">
-                        <div id="shadow-list"></div>
-                    </div>
+                    <div id="shadow-content" class="sub-content" style="display:none;"><div id="shadow-list"></div></div>
                 </div>
 
                 <div id="role-tab" class="tab-content" style="display:none;">
@@ -95,7 +84,7 @@
                     <button class="btn-primary" onclick="speakRoleplay()">🎤 Bấm để trả lời</button>
                 </div>
 
-                <div class="footer-action">
+                <div style="text-align:center; margin-top:20px;">
                     <button class="btn-quiz" onclick="openQuiz()">🎯 Làm Quiz kiểm tra</button>
                 </div>
             </section>
@@ -106,7 +95,7 @@
         <div class="quiz-box">
             <h2 id="quiz-question">Câu hỏi?</h2>
             <div id="quiz-options"></div>
-            <button class="btn-back" onclick="closeQuiz()">Thoát</button>
+            <button onclick="closeQuiz()">Thoát</button>
         </div>
     </div>
 
