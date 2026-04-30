@@ -1,105 +1,593 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lani – Be A Gift | English Platform</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loving English – Lani – Be A Gift</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FAF6F1;--bg2:#F2ECE3;--surface:#FFFFFF;--surface2:#FBF8F4;
+  --border:#E6DED2;
+  --accent:#B8845C;--accent2:#8C6239;--accent-light:#E8D5C0;--accent-glow:rgba(184,132,92,0.12);
+  --green:#3D8B5E;--green-bg:#EEF6F1;
+  --blue:#4E7FA8;--blue-bg:#EDF3F8;
+  --text:#2A2017;--text2:#5C4E3C;--muted:#9B8C79;
+  --shadow:0 1px 12px rgba(42,32,23,0.05);
+  --shadow2:0 6px 32px rgba(42,32,23,0.08);
+  --radius:16px;--radius-sm:10px;
+}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 100% 70% at 50% 0%,rgba(184,132,92,0.1),transparent 60%),radial-gradient(circle at 20% 80%,rgba(78,127,168,0.06),transparent 40%),radial-gradient(circle at 80% 60%,rgba(61,139,94,0.05),transparent 40%)}
+.landing{min-height:100vh;display:flex;flex-direction:column;position:relative;z-index:1}
+.land-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 28px 40px}
+.land-logo{width:88px;height:88px;border-radius:24px;background:linear-gradient(135deg,var(--accent),#D4A574);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:#fff;box-shadow:0 8px 32px rgba(184,132,92,0.3);margin-bottom:28px;transform:rotate(-3deg);animation:logoIn .8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes logoIn{from{opacity:0;transform:rotate(-3deg) scale(.7) translateY(20px)}to{opacity:1;transform:rotate(-3deg) scale(1) translateY(0)}}
+.land-brand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--accent2);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;opacity:0;animation:fu .6s .2s ease forwards}
+.land-title{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;line-height:1.1;color:var(--text);margin-bottom:14px;opacity:0;animation:fu .6s .3s ease forwards}
+.land-title em{font-style:italic;color:var(--accent)}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* BILINGUAL TEXT */
+.bi{margin-bottom:48px;max-width:540px;opacity:0;animation:fu .6s .4s ease forwards}
+.bi .bi-vi{font-size:17px;color:var(--text2);line-height:1.65;margin-bottom:6px}
+.bi .bi-en{font-size:14px;color:var(--muted);line-height:1.6;font-style:italic}
+
+/* HERO IMAGE */
+.hero-img-wrapper {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: fu .6s .44s ease forwards;
+}
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  box-shadow: var(--shadow2);
+  border: 4px solid var(--surface);
+  object-fit: cover;
+}
+
+.sec-label{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:var(--accent);letter-spacing:4px;text-transform:uppercase;margin-bottom:6px;opacity:0;animation:fu .6s .45s ease forwards}
+.sec-label-en{font-size:12px;color:var(--muted);letter-spacing:2px;margin-bottom:12px;font-style:italic;opacity:0;animation:fu .6s .46s ease forwards}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:4px;opacity:0;animation:fu .6s .48s ease forwards}
+.sec-title-en{font-size:15px;color:var(--muted);font-style:italic;margin-bottom:40px;opacity:0;animation:fu .6s .49s ease forwards}
+
+/* PRINCIPLES */
+.land-principles{display:flex;flex-direction:column;gap:0;max-width:720px;width:100%;margin:0 auto 56px;text-align:left;opacity:0;animation:fu .6s .5s ease forwards}
+.land-principle{display:grid;grid-template-columns:60px 1fr;gap:0;position:relative}
+.land-principle:not(:last-child)::after{content:'';position:absolute;left:29px;top:60px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent-light),var(--border));z-index:1}
+.lp-icon-wrap{display:flex;flex-direction:column;align-items:center;padding-top:4px}
+.lp-icon{width:60px;height:60px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:26px;position:relative;z-index:2;border:2px solid var(--accent-light);transition:transform .3s,box-shadow .3s;cursor:pointer}
+.land-principle:hover .lp-icon{transform:scale(1.08);box-shadow:0 4px 20px rgba(184,132,92,0.2)}
+.lp-icon.b{background:linear-gradient(135deg,#FDF5EC,#F9E8D4)}
+.lp-icon.e{background:linear-gradient(135deg,#FDF0EE,#F8DCD8)}
+.lp-icon.d{background:linear-gradient(135deg,#EDF3F8,#D8E8F4)}
+.lp-icon.c{background:linear-gradient(135deg,#EEF6F1,#D4EDDD)}
+.lp-icon.l{background:linear-gradient(135deg,#F5F0FF,#E5DAFB)}
+.lp-content{padding:10px 0 24px 22px}
+.lp-header{cursor:pointer;user-select:none;display:flex;align-items:center;gap:10px}
+.lp-keyword{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--text);line-height:1.3;flex:1}
+.lp-keyword span{color:var(--accent);font-style:italic}
+.lp-toggle{font-size:14px;color:var(--accent);transition:transform .3s;flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;background:var(--surface)}
+.land-principle.open .lp-toggle{transform:rotate(180deg);background:var(--accent-glow);border-color:var(--accent)}
+.lp-vi{font-size:15px;color:var(--accent2);font-weight:500;margin-top:3px;font-style:italic}
+.lp-en{font-size:14px;color:var(--muted);line-height:1.6;margin-top:4px}
+
+/* DETAIL MINDMAP */
+.lp-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.land-principle.open .lp-detail{max-height:3000px}
+.lp-detail-inner{padding:20px 0 12px}
+.lp-detail-intro{font-size:14px;color:var(--text2);margin-bottom:6px;padding:12px 16px;background:var(--accent-glow);border-radius:var(--radius-sm);border-left:3px solid var(--accent);line-height:1.6}
+.lp-detail-intro-en{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:20px;padding:0 16px;line-height:1.5}
+.mindmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.mm-branch{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:all .3s;position:relative;overflow:hidden}
+.mm-branch:hover{border-color:var(--accent-light);transform:translateY(-2px);box-shadow:var(--shadow2)}
+.mm-branch::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;border-radius:3px 3px 0 0}
+.mm-branch.br1::before{background:linear-gradient(90deg,#D4A574,#E8C9A8)}
+.mm-branch.br2::before{background:linear-gradient(90deg,#C08080,#E0ACAC)}
+.mm-branch.br3::before{background:linear-gradient(90deg,#7CACC8,#A8CDE0)}
+.mm-branch.br4::before{background:linear-gradient(90deg,#7CB88E,#A8D8B8)}
+.mm-branch.br5::before{background:linear-gradient(90deg,#9E8EC8,#C0B0E0)}
+.mm-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;display:flex;align-items:center;gap:6px}
+.mm-title .mm-emoji{font-size:16px}
+.mm-title-en{font-size:11.5px;color:var(--muted);font-style:italic;margin-bottom:10px}
+.mm-items{display:flex;flex-direction:column;gap:8px}
+.mm-item{font-size:13.5px;color:var(--text2);line-height:1.45;display:flex;align-items:flex-start;gap:8px}
+.mm-item::before{content:'•';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
+.mm-item-en{font-size:12px;color:var(--muted);font-style:italic;margin-left:16px;margin-top:-4px;margin-bottom:2px}
+
+/* FEATURES */
+.land-features{max-width:800px;width:100%;margin:0 auto 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;opacity:0;animation:fu .6s .7s ease forwards}
+.lf-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center;transition:all .3s}
+.lf-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--accent-light)}
+.lf-icon{font-size:28px;margin-bottom:10px}.lf-title{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--text)}.lf-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+.land-cta{padding:20px 56px;border-radius:16px;border:none;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;font-family:'Outfit',sans-serif;font-size:17px;font-weight:600;cursor:pointer;transition:all .3s;box-shadow:0 6px 24px rgba(140,98,57,0.3);letter-spacing:.5px;text-decoration:none;display:inline-block;opacity:0;animation:fu .6s .8s ease forwards}
+.land-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 36px rgba(140,98,57,0.4)}
+.land-footer{text-align:center;padding:24px 28px;font-size:12.5px;color:var(--muted);opacity:0;animation:fu .6s .9s ease forwards}
+.land-footer span{color:var(--accent)}
+
+@media(max-width:768px){
+  .land-hero{padding:40px 20px 32px}
+  .land-logo{width:68px;height:68px;font-size:32px;border-radius:18px}
+  .land-title{font-size:36px}
+  .bi .bi-vi{font-size:15px}
+  .land-principle{grid-template-columns:48px 1fr}
+  .lp-icon{width:48px;height:48px;font-size:21px;border-radius:14px}
+  .land-principle:not(:last-child)::after{left:23px;top:48px}
+  .lp-keyword{font-size:20px}
+  .lp-content{padding:6px 0 20px 16px}
+  .mindmap{grid-template-columns:1fr}
+  .land-cta{padding:16px 40px;font-size:15px}
+  .land-features{grid-template-columns:1fr;max-width:360px}
+  .sec-title{font-size:24px}
+  .lp-toggle{width:24px;height:24px;font-size:12px}
+  .hero-img-wrapper {max-width: 280px;}
+}
+
+/* ================= AUDIO PLAYER ================= */
+.audio-player-wrapper {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fu .6s .42s ease forwards; 
+}
+.audio-btn {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  padding: 8px 20px 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  outline: none;
+}
+.audio-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow2);
+  border-color: var(--accent-light);
+}
+.audio-btn.playing {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+}
+.audio-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  padding-left: 3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(184, 132, 92, 0.3);
+}
+.audio-btn.playing .audio-icon {
+  padding-left: 0;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+}
+.audio-info {
+  display: flex;
+  flex-direction: column;
+}
+.audio-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.audio-sub {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Hiệu ứng sóng âm mini */
+.audio-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 16px;
+  margin-left: 6px;
+  opacity: 0.3;
+}
+.audio-btn.playing .audio-wave {
+  opacity: 1;
+}
+.audio-wave span {
+  display: block;
+  width: 3px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: height 0.1s ease;
+}
+.audio-btn.playing .audio-wave span {
+  animation: soundWave 0.8s infinite alternate ease-in-out;
+}
+.audio-btn.playing .audio-wave span:nth-child(1) { animation-delay: 0.0s; }
+.audio-btn.playing .audio-wave span:nth-child(2) { animation-delay: 0.3s; }
+.audio-btn.playing .audio-wave span:nth-child(3) { animation-delay: 0.6s; }
+.audio-btn.playing .audio-wave span:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes soundWave {
+  0% { height: 4px; }
+  100% { height: 18px; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <nav class="sidebar">
-            <div class="logo">Lani - Be A Gift</div>
-            <ul class="nav-links">
-                <li class="active" onclick="showPage('dashboard')">🏠 Dashboard</li>
-                <li onclick="showPage('stats')">📊 Thống kê</li>
-            </ul>
-        </nav>
+<div class="landing">
+  <div class="land-hero">
 
-        <main class="content">
-            <header>
-                <h1 id="greeting">Chào Lani! 👋</h1>
-                <div class="user-stats">
-                    <span>💎 XP: <b id="xp-display">0</b></span>
-                    <span> 🔥 <b id="streak-display">0</b> ngày</span>
-                </div>
-            </header>
+    <div class="land-logo">L</div>
+    <div class="land-brand">Lani — Be A Gift</div>
+    <h1 class="land-title">Loving <em>English</em></h1>
 
-            <section id="dashboard-page" class="page">
-                <div class="daily-review-box">
-                    <h3>🔥 Daily Review</h3>
-                    <p>Bạn có từ vựng cần ôn tập ngay!</p>
-                    <button onclick="alert('Tính năng đang hoàn thiện!')">Ôn tập ngay</button>
-                </div>
-                <h2>Lộ trình học tập</h2>
-                <div class="lesson-grid">
-                    <div class="lesson-card">
-                        <h3>Topic 1: Introduce Yourself</h3>
-                        <p>10 Từ vựng • Shadowing • Quiz</p>
-                        <button class="btn-primary" onclick="openLesson()">Học ngay</button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="stats-page" class="page" style="display:none;">
-                <h2>Tiến độ học tập</h2>
-                <div class="stat-card">
-                    <h4>Lịch sử học tập</h4>
-                    <p>Bạn đang làm rất tốt, cố lên nhé!</p>
-                </div>
-            </section>
-
-            <section id="lesson-workspace" class="page" style="display:none;">
-                <button class="btn-back" onclick="showPage('dashboard')">⬅ Quay lại</button>
-                <div class="main-tabs">
-                    <button class="tab-btn active" onclick="switchTab('flash')">🃏 Flashcard</button>
-                    <button class="tab-btn" onclick="switchTab('story')">📰 Chuyện chêm</button>
-                    <button class="tab-btn" onclick="switchTab('role')">🗣️ Role-play</button>
-                </div>
-
-                <div id="flash-tab" class="tab-content">
-                    <div class="card-box" onclick="this.classList.toggle('flip')">
-                        <div class="card-front" id="vocab-en">Word</div>
-                        <div class="card-back" id="vocab-vi">Nghĩa</div>
-                    </div>
-                    <div class="nav-controls">
-                        <button onclick="prevVocab()">⬅</button>
-                        <span id="vocab-index">1/10</span>
-                        <button onclick="nextVocab()">➡</button>
-                    </div>
-                </div>
-
-                <div id="story-tab" class="tab-content" style="display:none;">
-                    <div class="sub-tabs">
-                        <button class="sub-btn active" onclick="switchSubTab('mixed')">📖 Đọc chuyện</button>
-                        <button class="sub-btn" onclick="switchSubTab('shadow')">🎙️ Shadowing</button>
-                    </div>
-                    <div id="mixed-content" class="sub-content story-container"></div>
-                    <div id="shadow-content" class="sub-content" style="display:none;"><div id="shadow-list"></div></div>
-                </div>
-
-                <div id="role-tab" class="tab-content" style="display:none;">
-                    <div id="chat-box" class="chat-container"></div>
-                    <button class="btn-primary" onclick="speakRoleplay()">🎤 Bấm để trả lời</button>
-                </div>
-
-                <div style="text-align:center; margin-top:20px;">
-                    <button class="btn-quiz" onclick="openQuiz()">🎯 Làm Quiz kiểm tra</button>
-                </div>
-            </section>
-        </main>
+    <div class="bi">
+      <div class="bi-vi">Chương trình luyện tiếng Anh giao tiếp thực tế — yêu thương ngôn ngữ, yêu thương chính mình.</div>
+      <div class="bi-en">A real-life English communication program — love the language, love yourself.</div>
     </div>
 
-    <div id="quiz-overlay" class="quiz-screen" style="display:none;">
-        <div class="quiz-box">
-            <h2 id="quiz-question">Câu hỏi?</h2>
-            <div id="quiz-options"></div>
-            <button onclick="closeQuiz()">Thoát</button>
+    <!-- TRÌNH PHÁT NHẠC LOVING ENGLISH -->
+    <div class="audio-player-wrapper">
+      <audio id="lovingAudio" src="lovingenglish.mp3" preload="metadata"></audio>
+      
+      <button class="audio-btn" onclick="toggleAudio()" id="audioBtn">
+        <span class="audio-icon" id="audioIcon">▶</span>
+        <div class="audio-info">
+          <span class="audio-title">Bài hát: 5 Nguyên tắc</span>
+          <span class="audio-sub">Listen to the theme song</span>
         </div>
+        <div class="audio-wave" id="audioWave">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
     </div>
 
-    <script src="lesson1.js"></script>
-    <script src="app.js"></script>
+    <!-- HÌNH ẢNH MINH HOẠ -->
+    <div class="hero-img-wrapper">
+      <img src="love.png" alt="Loving English - Trục cốt lõi" class="hero-img">
+    </div>
+
+    <div class="sec-label">📌 Trục cốt lõi</div>
+    <div class="sec-label-en">Core Pillars</div>
+    <div class="sec-title">5 Nguyên tắc của Loving English</div>
+    <div class="sec-title-en">The 5 Principles of Loving English</div>
+
+    <div class="land-principles">
+
+      <!-- ========== BELIEF ========== -->
+      <div class="land-principle" id="lp0">
+        <div class="lp-icon-wrap"><div class="lp-icon b" onclick="tog(0)">🕊️</div></div>
+        <div class="lp-content">
+          <div class="lp-header" onclick="tog(0)">
+            <div class="lp-keyword"><span>B</span>elief</div>
+            <div class="lp-toggle">▼</div>
+          </div>
+          <div class="lp-vi">Niềm tin dẫn lối</div>
+          <div class="lp-en">Belief leads the way.</div>
+          <div class="lp-detail"><div class="lp-detail-inner">
+            <div class="lp-detail-intro">Khi có niềm tin, việc học bắt đầu.</div>
+            <div class="lp-detail-intro-en">When you believe, learning begins.</div>
+            <div class="mindmap">
+              <div class="mm-branch br1">
+                <div class="mm-title"><span class="mm-emoji">💫</span> Tin vào bản thân</div>
+                <div class="mm-title-en">Believe in yourself</div>
+                <div class="mm-items">
+                  <div class="mm-item">Tôi có thể học tiếng Anh</div><div class="mm-item-en">I can learn English</div>
+                  <div class="mm-item">Tôi học theo cách của mình</div><div class="mm-item-en">I learn in my own way</div>
+                  <div class="mm-item">Tốc độ của tôi là đủ</div><div class="mm-item-en">My pace is enough</div>
+                  <div class="mm-item">Không cần năng khiếu</div><div class="mm-item-en">No talent required</div>
+                </div>
+              </div>
+              <div class="mm-branch br2">
+                <div class="mm-title"><span class="mm-emoji">🛡️</span> Buông nỗi sợ</div>
+                <div class="mm-title-en">Let go of fear</div>
+                <div class="mm-items">
+                  <div class="mm-item">Không sợ sai</div><div class="mm-item-en">Don't fear mistakes</div>
+                  <div class="mm-item">Không xấu hổ</div><div class="mm-item-en">Don't feel ashamed</div>
+                  <div class="mm-item">Không so sánh</div><div class="mm-item-en">Don't compare</div>
+                  <div class="mm-item">Không áp lực</div><div class="mm-item-en">No pressure</div>
+                </div>
+              </div>
+              <div class="mm-branch br3">
+                <div class="mm-title"><span class="mm-emoji">🧭</span> Tin vào tiến trình</div>
+                <div class="mm-title-en">Trust the process</div>
+                <div class="mm-items">
+                  <div class="mm-item">Tin vào quá trình</div><div class="mm-item-en">Trust the journey</div>
+                  <div class="mm-item">Bước nhỏ cũng có giá trị</div><div class="mm-item-en">Small steps still matter</div>
+                  <div class="mm-item">Luyện tập mỗi ngày đều đáng quý</div><div class="mm-item-en">Every day of practice is precious</div>
+                  <div class="mm-item">Đều đặn quan trọng hơn nhanh</div><div class="mm-item-en">Consistency beats speed</div>
+                </div>
+              </div>
+              <div class="mm-branch br4">
+                <div class="mm-title"><span class="mm-emoji">🌸</span> Tâm thế dịu dàng</div>
+                <div class="mm-title-en">A gentle mindset</div>
+                <div class="mm-items">
+                  <div class="mm-item">Tử tế với chính mình</div><div class="mm-item-en">Be kind to yourself</div>
+                  <div class="mm-item">Học không ép buộc</div><div class="mm-item-en">Learn without force</div>
+                  <div class="mm-item">Cho phép chậm rãi</div><div class="mm-item-en">Allow yourself to go slow</div>
+                  <div class="mm-item">Kiên nhẫn với bản thân</div><div class="mm-item-en">Be patient with yourself</div>
+                </div>
+              </div>
+              <div class="mm-branch br5">
+                <div class="mm-title"><span class="mm-emoji">🗣️</span> Tiếng nói bên trong</div>
+                <div class="mm-title-en">Your inner voice</div>
+                <div class="mm-items">
+                  <div class="mm-item">Tôi đang học</div><div class="mm-item-en">I am learning</div>
+                  <div class="mm-item">Tôi đang tiến bộ</div><div class="mm-item-en">I am making progress</div>
+                  <div class="mm-item">Tôi không cần vội</div><div class="mm-item-en">I don't need to rush</div>
+                  <div class="mm-item">Hôm nay như vậy là đủ</div><div class="mm-item-en">Today is enough</div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- ========== EMOTION ========== -->
+      <div class="land-principle" id="lp1">
+        <div class="lp-icon-wrap"><div class="lp-icon e" onclick="tog(1)">❤️</div></div>
+        <div class="lp-content">
+          <div class="lp-header" onclick="tog(1)">
+            <div class="lp-keyword"><span>E</span>motion</div>
+            <div class="lp-toggle">▼</div>
+          </div>
+          <div class="lp-vi">Cảm xúc chi phối</div>
+          <div class="lp-en">Emotions shape learning.</div>
+          <div class="lp-detail"><div class="lp-detail-inner">
+            <div class="lp-detail-intro">Não bộ ghi nhớ tốt nhất khi gắn liền với cảm xúc. Học bằng trái tim, không chỉ bằng lý trí.</div>
+            <div class="lp-detail-intro-en">The brain remembers best when connected to emotions. Learn with your heart, not just your mind.</div>
+            <div class="mindmap">
+              <div class="mm-branch br1">
+                <div class="mm-title"><span class="mm-emoji">🎭</span> Học bằng cảm xúc</div>
+                <div class="mm-title-en">Learn with emotions</div>
+                <div class="mm-items">
+                  <div class="mm-item">Chọn nội dung mình thích</div><div class="mm-item-en">Choose content you love</div>
+                  <div class="mm-item">Kết nối với câu chuyện thật</div><div class="mm-item-en">Connect with real stories</div>
+                  <div class="mm-item">Cảm nhận, không chỉ ghi nhớ</div><div class="mm-item-en">Feel it, don't just memorize</div>
+                  <div class="mm-item">Để cảm xúc dẫn lối việc học</div><div class="mm-item-en">Let emotions guide your learning</div>
+                </div>
+              </div>
+              <div class="mm-branch br2">
+                <div class="mm-title"><span class="mm-emoji">🌈</span> Trải nghiệm đa giác quan</div>
+                <div class="mm-title-en">Multi-sensory experiences</div>
+                <div class="mm-items">
+                  <div class="mm-item">Nghe nhạc tiếng Anh yêu thích</div><div class="mm-item-en">Listen to English songs you love</div>
+                  <div class="mm-item">Xem phim với cảm xúc</div><div class="mm-item-en">Watch movies with feeling</div>
+                  <div class="mm-item">Đọc câu chuyện chạm lòng</div><div class="mm-item-en">Read stories that touch your heart</div>
+                  <div class="mm-item">Viết nhật ký bằng tiếng Anh</div><div class="mm-item-en">Write a journal in English</div>
+                </div>
+              </div>
+              <div class="mm-branch br3">
+                <div class="mm-title"><span class="mm-emoji">⛺</span> Tạo không gian an toàn</div>
+                <div class="mm-title-en">Create a safe space</div>
+                <div class="mm-items">
+                  <div class="mm-item">Học trong niềm vui</div><div class="mm-item-en">Learn with joy</div>
+                  <div class="mm-item">Không phán xét bản thân</div><div class="mm-item-en">Don't judge yourself</div>
+                  <div class="mm-item">Cho phép cảm xúc tự nhiên</div><div class="mm-item-en">Allow natural emotions</div>
+                  <div class="mm-item">Trân trọng mọi khoảnh khắc học</div><div class="mm-item-en">Cherish every moment of learning</div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- ========== DEPTH ========== -->
+      <div class="land-principle" id="lp2">
+        <div class="lp-icon-wrap"><div class="lp-icon d" onclick="tog(2)">🌳</div></div>
+        <div class="lp-content">
+          <div class="lp-header" onclick="tog(2)">
+            <div class="lp-keyword"><span>D</span>epth</div>
+            <div class="lp-toggle">▼</div>
+          </div>
+          <div class="lp-vi">Học sâu, không vội</div>
+          <div class="lp-en">Go deep. Take it slow.</div>
+          <div class="lp-detail"><div class="lp-detail-inner">
+            <div class="lp-detail-intro">Chất lượng hơn số lượng. Hiểu thấu một câu hơn là lướt qua trăm câu.</div>
+            <div class="lp-detail-intro-en">Quality over quantity. Understanding one sentence deeply is better than skimming a hundred.</div>
+            <div class="mindmap">
+              <div class="mm-branch br3">
+                <div class="mm-title"><span class="mm-emoji">🔍</span> Phân tích từng lớp</div>
+                <div class="mm-title-en">Analyze layer by layer</div>
+                <div class="mm-items">
+                  <div class="mm-item">Hiểu nghĩa, không chỉ dịch</div><div class="mm-item-en">Understand meaning, not just translate</div>
+                  <div class="mm-item">Phân tích cấu trúc câu</div><div class="mm-item-en">Analyze sentence structure</div>
+                  <div class="mm-item">Tìm hiểu ngữ cảnh sử dụng</div><div class="mm-item-en">Explore usage in context</div>
+                  <div class="mm-item">Khám phá sắc thái ngôn ngữ</div><div class="mm-item-en">Discover language nuances</div>
+                </div>
+              </div>
+              <div class="mm-branch br1">
+                <div class="mm-title"><span class="mm-emoji">🔄</span> Lặp lại có chủ đích</div>
+                <div class="mm-title-en">Purposeful repetition</div>
+                <div class="mm-items">
+                  <div class="mm-item">Ôn lại nhiều lần, mỗi lần sâu hơn</div><div class="mm-item-en">Review many times, deeper each time</div>
+                  <div class="mm-item">Shadowing — nghe và nói theo</div><div class="mm-item-en">Shadowing — listen and repeat</div>
+                  <div class="mm-item">Viết lại bằng lời của mình</div><div class="mm-item-en">Rewrite in your own words</div>
+                  <div class="mm-item">Dùng trong tình huống thật</div><div class="mm-item-en">Use in real situations</div>
+                </div>
+              </div>
+              <div class="mm-branch br4">
+                <div class="mm-title"><span class="mm-emoji">🐢</span> Không vội vàng</div>
+                <div class="mm-title-en">No rush</div>
+                <div class="mm-items">
+                  <div class="mm-item">Chậm mà chắc</div><div class="mm-item-en">Slow and steady</div>
+                  <div class="mm-item">Không chạy theo số lượng</div><div class="mm-item-en">Don't chase quantity</div>
+                  <div class="mm-item">Tận hưởng quá trình</div><div class="mm-item-en">Enjoy the process</div>
+                  <div class="mm-item">Để kiến thức ngấm dần</div><div class="mm-item-en">Let knowledge sink in</div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- ========== CLARITY ========== -->
+      <div class="land-principle" id="lp3">
+        <div class="lp-icon-wrap"><div class="lp-icon c" onclick="tog(3)">💎</div></div>
+        <div class="lp-content">
+          <div class="lp-header" onclick="tog(3)">
+            <div class="lp-keyword"><span>C</span>larity</div>
+            <div class="lp-toggle">▼</div>
+          </div>
+          <div class="lp-vi">Rõ ràng, không rối</div>
+          <div class="lp-en">Keep it clear, not complicated.</div>
+          <div class="lp-detail"><div class="lp-detail-inner">
+            <div class="lp-detail-intro">Sự rõ ràng giúp não bộ xử lý nhanh hơn. Đơn giản hóa để hiểu sâu hơn.</div>
+            <div class="lp-detail-intro-en">Clarity helps the brain process faster. Simplify to understand deeper.</div>
+            <div class="mindmap">
+              <div class="mm-branch br4">
+                <div class="mm-title"><span class="mm-emoji">🎯</span> Mục tiêu rõ ràng</div>
+                <div class="mm-title-en">Clear goals</div>
+                <div class="mm-items">
+                  <div class="mm-item">Biết hôm nay học gì</div><div class="mm-item-en">Know what to learn today</div>
+                  <div class="mm-item">Một lúc một thứ</div><div class="mm-item-en">One thing at a time</div>
+                  <div class="mm-item">Không ôm đồm</div><div class="mm-item-en">Don't overload</div>
+                  <div class="mm-item">Tiêu điểm rõ ràng</div><div class="mm-item-en">Sharp focus</div>
+                </div>
+              </div>
+              <div class="mm-branch br3">
+                <div class="mm-title"><span class="mm-emoji">🗂️</span> Hệ thống gọn gàng</div>
+                <div class="mm-title-en">A tidy system</div>
+                <div class="mm-items">
+                  <div class="mm-item">Phân loại kiến thức</div><div class="mm-item-en">Categorize knowledge</div>
+                  <div class="mm-item">Ghi chép có hệ thống</div><div class="mm-item-en">Take organized notes</div>
+                  <div class="mm-item">Ôn tập có lộ trình</div><div class="mm-item-en">Review with a roadmap</div>
+                  <div class="mm-item">Không để kiến thức rời rạc</div><div class="mm-item-en">Don't let knowledge scatter</div>
+                </div>
+              </div>
+              <div class="mm-branch br5">
+                <div class="mm-title"><span class="mm-emoji">✂️</span> Đơn giản hóa</div>
+                <div class="mm-title-en">Simplify</div>
+                <div class="mm-items">
+                  <div class="mm-item">Giải thích dễ hiểu</div><div class="mm-item-en">Explain in simple terms</div>
+                  <div class="mm-item">Ví dụ gần gũi</div><div class="mm-item-en">Relatable examples</div>
+                  <div class="mm-item">Không dùng thuật ngữ phức tạp</div><div class="mm-item-en">No complicated jargon</div>
+                  <div class="mm-item">Rõ ràng từ gốc rễ</div><div class="mm-item-en">Clear from the roots</div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- ========== LITTLE MOMENTS ========== -->
+      <div class="land-principle" id="lp4">
+        <div class="lp-icon-wrap"><div class="lp-icon l" onclick="tog(4)">⏳</div></div>
+        <div class="lp-content">
+          <div class="lp-header" onclick="tog(4)">
+            <div class="lp-keyword"><span>L</span>ittle Moments</div>
+            <div class="lp-toggle">▼</div>
+          </div>
+          <div class="lp-vi">Mỗi khi rảnh rỗi — đi đứng nằm ngồi — luyện tiếng Anh thôi</div>
+          <div class="lp-en">In every free moment — standing or walking, lying down or sitting — practice English.</div>
+          <div class="lp-detail"><div class="lp-detail-inner">
+            <div class="lp-detail-intro">Không cần ngồi vào bàn mới là học. Mọi khoảnh khắc nhỏ đều là cơ hội để luyện tập.</div>
+            <div class="lp-detail-intro-en">You don't need a desk to learn. Every little moment is a chance to practice.</div>
+            <div class="mindmap">
+              <div class="mm-branch br5">
+                <div class="mm-title"><span class="mm-emoji">🚶</span> Đi đứng</div>
+                <div class="mm-title-en">Standing & walking</div>
+                <div class="mm-items">
+                  <div class="mm-item">Nghe podcast khi đi bộ</div><div class="mm-item-en">Listen to podcasts while walking</div>
+                  <div class="mm-item">Lẩm nhẩm câu đang học</div><div class="mm-item-en">Mumble the sentence you're learning</div>
+                  <div class="mm-item">Đặt tên tiếng Anh cho mọi thứ xung quanh</div><div class="mm-item-en">Name everything around you in English</div>
+                  <div class="mm-item">Nghĩ bằng tiếng Anh</div><div class="mm-item-en">Think in English</div>
+                </div>
+              </div>
+              <div class="mm-branch br1">
+                <div class="mm-title"><span class="mm-emoji">🛋️</span> Nằm ngồi</div>
+                <div class="mm-title-en">Lying down & sitting</div>
+                <div class="mm-items">
+                  <div class="mm-item">Lật flashcard trước khi ngủ</div><div class="mm-item-en">Flip flashcards before bed</div>
+                  <div class="mm-item">Xem video ngắn tiếng Anh</div><div class="mm-item-en">Watch short English videos</div>
+                  <div class="mm-item">Đọc 1 đoạn hội thoại</div><div class="mm-item-en">Read one dialogue</div>
+                  <div class="mm-item">Nghe 1 bài hát yêu thích</div><div class="mm-item-en">Listen to a favorite song</div>
+                </div>
+              </div>
+              <div class="mm-branch br2">
+                <div class="mm-title"><span class="mm-emoji">⏱️</span> Khoảnh khắc vàng</div>
+                <div class="mm-title-en">Golden moments</div>
+                <div class="mm-items">
+                  <div class="mm-item">5 phút chờ xe buýt</div><div class="mm-item-en">5 minutes waiting for the bus</div>
+                  <div class="mm-item">Nghỉ trưa 10 phút</div><div class="mm-item-en">10-minute lunch break</div>
+                  <div class="mm-item">Trước khi ngủ 5 phút</div><div class="mm-item-en">5 minutes before sleep</div>
+                  <div class="mm-item">Mỗi ngày chỉ cần 15 phút</div><div class="mm-item-en">Just 15 minutes a day</div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FEATURES -->
+    <div class="land-features">
+      <div class="lf-card">
+        <div class="lf-icon">💬</div>
+        <div class="lf-title">Script & Deep Learning</div>
+        <div class="lf-desc">Hội thoại thực tế, phân tích ngữ pháp, phát âm chuyên sâu<br><span style="color:var(--muted);font-style:italic;font-size:11px">Real dialogues, grammar analysis, in-depth pronunciation</span></div>
+      </div>
+      <div class="lf-card">
+        <div class="lf-icon">🎧</div>
+        <div class="lf-title">Flashcard & Shadowing</div>
+        <div class="lf-desc">Luyện từ vựng, nghe nói theo, ghi âm so sánh<br><span style="color:var(--muted);font-style:italic;font-size:11px">Vocabulary drills, listen & repeat, record & compare</span></div>
+      </div>
+      <div class="lf-card">
+        <div class="lf-icon">🎮</div>
+        <div class="lf-title">Game & Role-Play</div>
+        <div class="lf-desc">Nối từ, đóng vai hội thoại, quiz kiểm tra<br><span style="color:var(--muted);font-style:italic;font-size:11px">Word match, role-play conversations, quiz assessment</span></div>
+      </div>
+    </div>
+
+    <a class="land-cta" href="daily-english-lani.html">Bắt đầu học ngay ➔ Start learning now</a>
+
+  </div>
+  <div class="land-footer">Loving English — <span>Lani — Be A Gift</span> • Học tiếng Anh với tình yêu • Learn English with love</div>
+</div>
+
+<script>
+function tog(i){document.getElementById('lp'+i).classList.toggle('open')}
+
+// Tính năng điều khiển âm thanh
+const audioEl = document.getElementById('lovingAudio');
+const audioBtn = document.getElementById('audioBtn');
+const audioIcon = document.getElementById('audioIcon');
+
+function toggleAudio() {
+  if (audioEl.paused) {
+    audioEl.play();
+    audioBtn.classList.add('playing');
+    audioIcon.innerHTML = '❚❚'; // Chuyển thành icon Pause
+  } else {
+    audioEl.pause();
+    audioBtn.classList.remove('playing');
+    audioIcon.innerHTML = '▶'; // Chuyển lại icon Play
+  }
+}
+
+// Tự động reset nút khi bài hát kết thúc
+audioEl.addEventListener('ended', () => {
+  audioBtn.classList.remove('playing');
+  audioIcon.innerHTML = '▶';
+});
+</script>
 </body>
 </html>
